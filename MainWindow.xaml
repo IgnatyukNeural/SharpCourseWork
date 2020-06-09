@@ -1,0 +1,52 @@
+﻿<Window x:Class="CourseworkFinal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseworkFinal"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="UrbanDictionary API" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label Content="Enter a word: " HorizontalAlignment="Left" Margin="20,40,0,0" VerticalAlignment="Top" Width="134"/>
+        <TextBox x:Name="Query" HorizontalAlignment="Center" Height="23" Margin="136,43,253,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="385" SpellCheck.IsEnabled="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+        <Button Click="Button_SendQuery" Content="Search definition" HorizontalAlignment="Left" Margin="568,43,0,0" VerticalAlignment="Top" Width="196" Height="23"/>
+        <DataGrid x:Name="ResultTable" HorizontalAlignment="Center" Height="281" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Center" Width="754" AutoGenerateColumns="False" GridLinesVisibility="None">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Definition" Binding="{Binding definition}" Width="1*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Example" Binding="{Binding example}" Width="2*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Author" Binding="{Binding author}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Rating" Binding="{Binding thumbs_up}" CanUserResize="False">
+                    <DataGridTextColumn.ElementStyle> 
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
